@@ -6,6 +6,7 @@ import repository.BookRepository;
 import repository.ReaderRepository;
 import utils.MyArrayList;
 import utils.MyList;
+import utils.UserValidator;
 
 /**
 * @author Sergey Bugaenko
@@ -76,6 +77,27 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public User createUser(String email, String password) {
+        User user = null;
+
+        if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
+            // Сервис не должен писать сообщения "клиенту"
+//            System.out.println("Что-то не так с email / password");
+            return null;
+        }
+        if (readerRepository.isEmailExists(email)) {
+            // не должны писать, но здесь по другому не получится с текущими знаниями
+            System.out.println("Пользователь с таким именем существует");
+            return null;
+        }
+
+        // Надо проверить email и пароль на соответствие требованиям.
+        if (UserValidator.isEmailValid(email) && UserValidator.isPasswordValid(password)) {
+            // пользователя можно регистрировать
+            user = readerRepository.saveUser(email, password);
+            return user;
+        }
+
+        // email и/или пароль не прошли валидацию
         return null;
     }
 
