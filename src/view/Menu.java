@@ -45,7 +45,7 @@ public class Menu {
             System.out.println("1 -> Меню книг");
             System.out.println("2 -> Меню пользователей");
             System.out.println("3 -> Меню администратора");
-            System.out.println("0 -> Выход");
+            System.out.println(COLOR_YELLOW + "0 -> Выход" + COLOR_RESET);
 
             System.out.println("\nСделайте выбор:");
             int choice = scanner.nextInt();
