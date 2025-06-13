@@ -28,6 +28,7 @@ public interface BookRepository<T extends Book> {
 
     MyList<T> getBooksByTitle(String title);
     MyList<T> getBooksByAuthor(String author);
+    MyList<T> getBooksByStatus(boolean status);
 
     // U
     void  takeBook(T book);
