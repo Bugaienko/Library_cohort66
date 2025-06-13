@@ -75,6 +75,15 @@ public class BookRepositoryImpl<T extends Book> implements BookRepository<Book> 
     }
 
     @Override
+    public MyList<Book> getBooksByStatus(boolean status) {
+        MyList<Book> result = new MyArrayList<>();
+        for (Book book : books) {
+            if (book.isTaken() == status) result.add(book);
+        }
+        return result;
+    }
+
+    @Override
     public void takeBook(Book book) {
 
     }
