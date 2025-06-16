@@ -35,8 +35,15 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public MyList<Book> getAllFreeBooks() {
-        //TODO Elena
-        return null;
+        MyList<Book> allBooks = bookRepository.getAllBooks();
+        MyList<Book> freeBooks = new MyList<>();
+
+        for (Book book : allBooks){
+            if (!book.isTaken()){
+                freeBooks.add(book);
+            }
+        }
+        return freeBooks;
     }
 
     @Override
