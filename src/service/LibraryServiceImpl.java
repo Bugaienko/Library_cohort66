@@ -36,7 +36,7 @@ public class LibraryServiceImpl implements LibraryService {
     @Override
     public MyList<Book> getAllFreeBooks() {
         MyList<Book> allBooks = bookRepository.getAllBooks();
-        MyList<Book> freeBooks = new MyList<>();
+        MyList<Book> freeBooks = new MyArrayList<>();
 
         for (Book book : allBooks){
             if (!book.isTaken()){
