@@ -52,7 +52,9 @@ public class ReaderRepositoryImpl implements ReaderRepository {
 
     @Override
     public boolean isEmailExists(String email) {
-        // TODO Vitaliy
+        for (User user : users) {
+            if (user.getEmail().equals(email)) return true;
+        }
         return false;
     }
 }
