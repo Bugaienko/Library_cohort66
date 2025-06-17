@@ -46,14 +46,16 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public Book getBookById(int id) {
-        // TODO Elena
-        return null;
+        if (id <= 0) {
+            return null;
+        }
+        return bookRepository.getBookById(id);
     }
 
     @Override
     public MyList<Book> getBooksByAuthor(String author) {
-        // TODO Elena
-        return null;
+        if (author == null || author.isEmpty()) return new MyArrayList<>();
+        return bookRepository.getBooksByAuthor(author);
     }
 
     @Override
