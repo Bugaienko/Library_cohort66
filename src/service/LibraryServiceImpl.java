@@ -15,6 +15,8 @@ import utils.UserValidator;
 
 public class LibraryServiceImpl implements LibraryService {
 
+    private User activeUser;
+
     private final BookRepository<Book> bookRepository;
     private final ReaderRepository readerRepository;
 
@@ -110,8 +112,16 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public User login(String email, String password) {
-        // TODO Sergey
-        return null;
+       User user = readerRepository.getUserByEmail(email);
+
+       if (user == null) return null;
+
+       if (user.getPassword().equals(password)) {
+           activeUser = user;
+           return user;
+       }
+
+       return null;
     }
 
     @Override
@@ -121,8 +131,7 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public User getActiveUser() {
-        // TODO Sergey
-        return null;
+        return activeUser;
     }
 
     @Override
