@@ -33,6 +33,9 @@ public class BookRepositoryImpl<T extends Book> implements BookRepository<Book> 
                 new Book(currentId.getAndIncrement(), "Java. Многопоточность в практике", "Дж. Ритц", 2011),
                 new Book(currentId.getAndIncrement(), "Java. Руководство для начинающих", "Герберт Шилдт", 2019)
         );
+        Book bookBusy = new Book(currentId.getAndIncrement(), "Чистый код. Создание, анализ и рефакторинг", "Роберт Мартин", 2008);
+        bookBusy.setTaken(true);
+        books.add(bookBusy);
     }
 
     @Override
