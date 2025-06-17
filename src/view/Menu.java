@@ -76,6 +76,7 @@ public class Menu {
             System.out.println("4 -> Список книг по автору");
             System.out.println("5 -> Взять книгу");
             System.out.println("6 -> Вернуть книгу");
+            System.out.println("7 -> Список всех занятых книг");
             System.out.println("0 -> Вернуться в предыдущее меню");
 
             System.out.println("\nСделайте выбор");
@@ -121,6 +122,11 @@ public class Menu {
             case 6:
                 // TODO вернуть книгу
                 System.out.println("Вернуть книгу");
+                waitRead();
+                break;
+            case 7:
+                MyList<Book> books4 = service.getAllBusyBooks();
+                printBookList(books4);
                 waitRead();
                 break;
             default:

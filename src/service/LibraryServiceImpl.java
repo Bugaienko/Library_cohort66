@@ -41,8 +41,7 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public MyList<Book> getAllBusyBooks() {
-        // TODO Vitaliy
-        return null;
+        return bookRepository.getBooksByStatus(true);
     }
 
     @Override
@@ -65,8 +64,7 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public MyList<Book> getBooksByStatus(boolean status) {
-        // TODO Vitaliy
-        return null;
+        return bookRepository.getBooksByStatus(status);
     }
 
     @Override
