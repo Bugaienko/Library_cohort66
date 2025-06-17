@@ -114,6 +114,7 @@ public class LibraryServiceImpl implements LibraryService {
     public User login(String email, String password) {
        User user = readerRepository.getUserByEmail(email);
 
+     //   System.out.println("login: " + user);
        if (user == null) return null;
 
        if (user.getPassword().equals(password)) {

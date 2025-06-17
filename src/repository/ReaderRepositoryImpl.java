@@ -42,6 +42,9 @@ public class ReaderRepositoryImpl implements ReaderRepository {
 
     @Override
     public User getUserByEmail(String email) {
+       for (User user : users) {
+           if (user.getEmail().equals(email)) return user;
+       }
         return null;
     }
 
