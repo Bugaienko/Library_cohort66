@@ -35,8 +35,9 @@ public class ReaderRepositoryImpl implements ReaderRepository {
 
     @Override
     public User saveUser(String email, String password) {
-        // TODO Sergey
-        return null;
+        User user = new User(email, password);
+        users.add(user);
+        return user;
     }
 
     @Override
